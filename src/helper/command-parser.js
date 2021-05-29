@@ -35,5 +35,6 @@ exports.parseLanding = (command) => {
     throw "invalid landing command list";
   }
 
+  landing[2] = landing[2].toUpperCase();
   return landing;
 };
