@@ -7,7 +7,7 @@ module.exports = class RoverService {
   }
 
   land(position) {
-    if (this.plateau.isInvalidPosition(position)) {
+    if (this.plateau.isInvalidPosition({ x: position[0], y: position[1] })) {
       throw "invalid landing position";
     }
     this.rover.x = position[0];
