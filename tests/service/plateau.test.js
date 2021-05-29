@@ -23,7 +23,8 @@ describe('plateau-service:create/isValidPosition', () => {
         plateau.park({ x: "1", y: "2", facing: "N" });
         plateau.park({ x: "3", y: "4", facing: "N" });
 
-        const result = plateau.isInvalidPosition({ x: "1", y: "2", facing: "N" });
+        const result = plateau.isInvalidPosition({ x: "3", y: "4", facing: "N" });
         expect(result).toBeTruthy();
     });
+    
 });

@@ -19,7 +19,7 @@ module.exports = class PlateauService {
     return (
       position.x > this.plateau.x ||
       position.y > this.plateau.y ||
-      this.rover.find((rover) => (rover = { x: position.x, y: position.y }))
+      this.rover.some((park) => park.x == position.x && park.y == position.y)
     );
   }
 };

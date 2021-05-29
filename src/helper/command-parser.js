@@ -1,13 +1,13 @@
 exports.parseRoverMovement = (command) => {
-    let movement = command.split("");
-    movement = movement.map(el => el.toUpperCase());
-  
-    if (!movement.every((el) => ['L', 'M', 'R'].includes(el))) {
-      throw "invalid rover movement command list";
-    }
-  
-    return movement;
-  };
+  let movement = command.split("");
+  movement = movement.map((el) => el.toUpperCase());
+
+  if (!movement.every((el) => ["L", "M", "R"].includes(el))) {
+    throw "invalid rover movement command list";
+  }
+
+  return movement;
+};
 
 exports.parsePlateauSize = (command) => {
   const plateau = command.split(" ");
@@ -35,6 +35,12 @@ exports.parseLanding = (command) => {
     throw "invalid landing command list";
   }
 
+  landing[0] = parseInt(landing[0]);
+  landing[1] = parseInt(landing[1]);
   landing[2] = landing[2].toUpperCase();
   return landing;
+};
+
+exports.parseOutput = (roverObj) => {
+  return `${roverObj.x} ${roverObj.y} ${roverObj.facing}`;
 };

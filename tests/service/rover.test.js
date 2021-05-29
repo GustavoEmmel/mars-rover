@@ -22,7 +22,7 @@ describe("rover-service:land/getPosition", () => {
       err = e;
     }
 
-    expect(err).toEqual("invalid landing position");
+    expect(err).toEqual("invalid position");
   });
 
   test("should not be able to land with another rover", () => {
@@ -37,7 +37,7 @@ describe("rover-service:land/getPosition", () => {
       err = e;
     }
 
-    expect(err).toEqual("invalid landing position");
+    expect(err).toEqual("invalid position");
   });
 });
 

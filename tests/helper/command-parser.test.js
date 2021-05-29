@@ -7,7 +7,7 @@ const {
 describe("command-parser:parseLanding", () => {
   test("should parse landing commands", () => {
     const result = parseLanding("1 2 N");
-    expect(result).toEqual(["1", "2", "N"]);
+    expect(result).toEqual([1, 2, "N"]);
   });
 
   test("should validate landing commands size", () => {
