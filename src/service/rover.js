@@ -1,8 +1,9 @@
 const RoverDomain = require("../domain/rover");
 
 module.exports = class RoverService {
-  constructor() {
+  constructor(plateau) {
     this.rover = new RoverDomain();
+    this.plateau = plateau;
   }
 
   land(position) {
