@@ -1,5 +1,5 @@
 const RoverService = require("./rover");
-const { parseOutput, parseRoverMovement, parseLanding } = require("../helper/command-parser");
+const { parseOutput } = require("../helper/command-parser");
 
 module.exports = class NasaService {
   constructor(plateau) {
@@ -9,9 +9,8 @@ module.exports = class NasaService {
   runMission(landingSite, navigation) {
     try {
       const rover = new RoverService(this.plateau);
-      rover.land(parseLanding(landingSite));
-      const instructions = parseRoverMovement(navigation);
-      instructions.forEach((cmd) => {
+      rover.land(landingSite);
+      navigation.forEach((cmd) => {
         switch (cmd) {
           case "R":
             rover.turnRight();

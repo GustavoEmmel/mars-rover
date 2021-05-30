@@ -9,11 +9,11 @@ Install:
 npm ci
 ```
 
-Run the project from index file
+Run the cli project
 -
 
 ```
-node index.js
+npm start
 ```
 
 Run all tests:

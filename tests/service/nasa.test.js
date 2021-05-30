@@ -11,8 +11,8 @@ describe("nasa-service:runMission", () => {
 
     const mission1 = new NasaService(plateau);
     const mission2 = new NasaService(plateau);
-    const result1 = mission1.runMission("1 2 N", "LMLMLMLMM");
-    const result2 = mission2.runMission("3 3 E", "MMRMMRMRRM");
+    const result1 = mission1.runMission([1, 2, "N"], ["L", "M", "L", "M", "L", "M", "L", "M", "M"]);
+    const result2 = mission2.runMission([3, 3, "E"], ["M", "M", "R", "M", "M", "R", "M", "R", "R", "M"] );
 
     expect(result1).toEqual("1 3 N");
     expect(result2).toEqual("5 1 E");
@@ -29,14 +29,13 @@ describe("nasa-service:runMission", () => {
 
       const mission1 = new NasaService(plateau);
       const mission2 = new NasaService(plateau);
-      const result1 = mission1.runMission("3 3 E", "MMRMMRMRRM");
-      mission2.runMission("3 3 E", "MMRMMRMRRM");
+      const result1 = mission1.runMission([3, 3, "E"], ["M", "M", "R", "M", "M", "R", "M", "R", "R", "M"]);
+      mission2.runMission([3, 3, "E"], ["M", "M", "R", "M", "M", "R", "M", "R", "R", "M"]);
       expect(result1).toEqual("5 1 E");
     } catch (e) {
       err = e;
     }
 
-    expect(err).toEqual('cannot move to that location');
-    
+    expect(err).toEqual("cannot move to that location");
   });
 });
