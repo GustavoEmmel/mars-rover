@@ -2,7 +2,7 @@ const PlateauService = require("../../src/service/plateau");
 const RoverService = require("../../src/service/rover");
 
 describe("rover-service:land/getPosition", () => {
-  test("should get position at landing input of 1 2 N", () => {
+  it("should get position at landing input of 1 2 N", () => {
     const plateau = new PlateauService();
     plateau.create(["5", "5"]);
     const rover = new RoverService(plateau);
@@ -11,7 +11,7 @@ describe("rover-service:land/getPosition", () => {
     expect(position).toEqual({ x: 1, y: 2, facing: "N" });
   });
 
-  test("should not be able to land on invalid position", () => {
+  it("should not be able to land on invalid position", () => {
     let err = "";
     try {
       const plateau = new PlateauService();
@@ -25,7 +25,7 @@ describe("rover-service:land/getPosition", () => {
     expect(err).toEqual("invalid position");
   });
 
-  test("should not be able to land with another rover", () => {
+  it("should not be able to land with another rover", () => {
     let err = "";
     try {
       const plateau = new PlateauService();
@@ -42,7 +42,7 @@ describe("rover-service:land/getPosition", () => {
 });
 
 describe("rover-service:turnRight/turnLeft", () => {
-  test("rover should turn right from North and face East", () => {
+  it("rover should turn right from North and face East", () => {
     const plateau = new PlateauService();
     plateau.create(["5", "5"]);
     const rover = new RoverService(plateau);
@@ -52,7 +52,7 @@ describe("rover-service:turnRight/turnLeft", () => {
     expect(position).toEqual({ x: 1, y: 2, facing: "E" });
   });
 
-  test("rover should turn left from West and face South", () => {
+  it("rover should turn left from West and face South", () => {
     const plateau = new PlateauService();
     plateau.create(["5", "5"]);
     const rover = new RoverService(plateau);
@@ -64,7 +64,7 @@ describe("rover-service:turnRight/turnLeft", () => {
 });
 
 describe("rover-service:move", () => {
-  test("should successfully move one block from North", () => {
+  it("should successfully move one block from North", () => {
     const plateau = new PlateauService();
     plateau.create(["5", "5"]);
     const rover = new RoverService(plateau);
@@ -74,7 +74,7 @@ describe("rover-service:move", () => {
     expect(position).toEqual({ x: 1, y: 3, facing: "N" });
   });
 
-  test("should successfully move one block from East", () => {
+  it("should successfully move one block from East", () => {
     const plateau = new PlateauService();
     plateau.create(["5", "5"]);
     const rover = new RoverService(plateau);
@@ -84,7 +84,7 @@ describe("rover-service:move", () => {
     expect(position).toEqual({ x: 2, y: 2, facing: "E" });
   });
 
-  test("should successfully move one block from South", () => {
+  it("should successfully move one block from South", () => {
     const plateau = new PlateauService();
     plateau.create(["5", "5"]);
     const rover = new RoverService(plateau);
@@ -94,7 +94,7 @@ describe("rover-service:move", () => {
     expect(position).toEqual({ x: 1, y: 1, facing: "S" });
   });
 
-  test("should successfully move one block from West", () => {
+  it("should successfully move one block from West", () => {
     const plateau = new PlateauService();
     plateau.create(["5", "5"]);
     const rover = new RoverService(plateau);
@@ -104,7 +104,7 @@ describe("rover-service:move", () => {
     expect(position).toEqual({ x: 0, y: 2, facing: "W" });
   });
 
-  test("should fail to move one block from North", () => {
+  it("should fail to move one block from North", () => {
     let err = "";
 
     try {
@@ -119,7 +119,7 @@ describe("rover-service:move", () => {
     expect(err).toEqual("cannot move to that location");
   });
 
-  test("should fail to move one block from East", () => {
+  it("should fail to move one block from East", () => {
     let err = "";
 
     try {
@@ -134,7 +134,7 @@ describe("rover-service:move", () => {
     expect(err).toEqual("cannot move to that location");
   });
 
-  test("should fail to move one block from South", () => {
+  it("should fail to move one block from South", () => {
     let err = "";
 
     try {
@@ -149,7 +149,7 @@ describe("rover-service:move", () => {
     expect(err).toEqual("cannot move to that location");
   });
 
-  test("should fail to move one block from West", () => {
+  it("should fail to move one block from West", () => {
     let err = "";
 
     try {

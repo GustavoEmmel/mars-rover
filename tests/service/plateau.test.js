@@ -1,7 +1,7 @@
 const PlateauService = require("../../src/service/plateau");
 
 describe('plateau-service:create/isValidPosition', () => {
-    test('should create a new plateau and validate position', () => {
+    it('should create a new plateau and validate position', () => {
         const plateau = new PlateauService();
         plateau.create(["2", "2"]);
 
@@ -9,7 +9,7 @@ describe('plateau-service:create/isValidPosition', () => {
         expect(result).toBeFalsy();
     });
 
-    test('should create a new plateau and not validate landing position outside plateau', () => {
+    it('should create a new plateau and not validate landing position outside plateau', () => {
         const plateau = new PlateauService();
         plateau.create(["2", "2"]);
 
@@ -17,7 +17,7 @@ describe('plateau-service:create/isValidPosition', () => {
         expect(result).toBeTruthy();
     });
 
-    test('should create a new plateau and not validate landing position with an already rover parked in', () => {
+    it('should create a new plateau and not validate landing position with an already rover parked in', () => {
         const plateau = new PlateauService();
         plateau.create(["4", "4"]);
         plateau.park({ x: "1", y: "2", facing: "N" });

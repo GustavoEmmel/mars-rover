@@ -5,12 +5,12 @@ const {
 } = require("../../src/helper/command-parser");
 
 describe("command-parser:parseLanding", () => {
-  test("should parse landing commands", () => {
+  it("should parse landing commands", () => {
     const result = parseLanding("1 2 N");
     expect(result).toEqual([1, 2, "N"]);
   });
 
-  test("should validate landing commands size", () => {
+  it("should validate landing commands size", () => {
     let err = "";
     try {
       parseLanding("1 2");
@@ -20,7 +20,7 @@ describe("command-parser:parseLanding", () => {
     expect(err).toEqual("invalid landing command size");
   });
 
-  test("should validate landing commands direction", () => {
+  it("should validate landing commands direction", () => {
     let err = "";
     try {
       parseLanding("1 2 3");
@@ -30,7 +30,7 @@ describe("command-parser:parseLanding", () => {
     expect(err).toEqual("invalid landing command list");
   });
 
-  test("should validate landing commands position", () => {
+  it("should validate landing commands position", () => {
     let err = "";
     try {
       parseLanding("1 S N");
@@ -42,12 +42,12 @@ describe("command-parser:parseLanding", () => {
 });
 
 describe("command-parser:parsePlateauSize", () => {
-  test("should parse plateau size commands", () => {
+  it("should parse plateau size commands", () => {
     const result = parsePlateauSize("5 5");
     expect(result).toEqual(["5", "5"]);
   });
 
-  test("should validate plateau size commands size", () => {
+  it("should validate plateau size commands size", () => {
     let err = "";
     try {
       parsePlateauSize("1 2 3");
@@ -57,7 +57,7 @@ describe("command-parser:parsePlateauSize", () => {
     expect(err).toEqual("invalid plateau command size");
   });
 
-  test("should validate plateau commands type", () => {
+  it("should validate plateau commands type", () => {
     let err = "";
     try {
       parsePlateauSize("1 S");
@@ -69,17 +69,17 @@ describe("command-parser:parsePlateauSize", () => {
 });
 
 describe("command-parser:parseRoverMovement", () => {
-  test("should parse rover movement commands", () => {
+  it("should parse rover movement commands", () => {
     const result = parseRoverMovement("LMLMLMLMMR");
     expect(result).toEqual(["L", "M", "L", "M", "L", "M", "L", "M", "M", "R"]);
   });
 
-  test("should parse rover movement commands with lower cases", () => {
+  it("should parse rover movement commands with lower cases", () => {
     const result = parseRoverMovement("LMLMlMLmMR");
     expect(result).toEqual(["L", "M", "L", "M", "L", "M", "L", "M", "M", "R"]);
   });
 
-  test("should validate invalid movement commands", () => {
+  it("should validate invalid movement commands", () => {
     let err = "";
     try {
       parseRoverMovement("LMLMlMLmx1MR");

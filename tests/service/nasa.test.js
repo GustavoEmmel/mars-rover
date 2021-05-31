@@ -3,7 +3,7 @@ const PlateauService = require("../../src/service/plateau");
 const { parsePlateauSize } = require("../../src/helper/command-parser");
 
 describe("nasa-service:runMission", () => {
-  test("user story", () => {
+  it("user story", () => {
     const plateauSize = "5 5";
 
     const plateau = new PlateauService();
@@ -18,7 +18,7 @@ describe("nasa-service:runMission", () => {
     expect(result2).toEqual("5 1 E");
   });
 
-  test("should return error for 2 rovers on the same spot", () => {
+  it("should return error for 2 rovers on the same spot", () => {
     let err = "";
 
     try {
