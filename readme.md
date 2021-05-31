@@ -22,8 +22,8 @@ Run all tests:
 npm t
 ```
 
-Run single test on jest (must have jest installed globally)
+Run single test on jest
 
 ```
-jest -t "user story"
+npx jest -t "user story"
 ```
