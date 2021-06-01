@@ -10,6 +10,16 @@ describe("command-parser:parseLanding", () => {
     expect(result).toEqual([1, 2, "N"]);
   });
 
+  it("should invalidate facing command", () => {
+    let err = "";
+    try {
+      parseLanding("1 2 n3");
+    } catch (e) {
+      err = e;
+    }
+    expect(err).toEqual("invalid landing command list");
+  });
+
   it("should validate landing commands size", () => {
     let err = "";
     try {

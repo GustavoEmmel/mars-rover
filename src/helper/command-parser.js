@@ -30,7 +30,7 @@ exports.parseLanding = (command) => {
 
   if (
     ![landing[0], landing[1]].every((el) => parseInt(el) == el) ||
-    parseInt(landing[2]) == landing[2]
+    !(['N', 'E', 'W', 'S'].includes(landing[2].toUpperCase()))
   ) {
     throw "invalid landing command list";
   }
